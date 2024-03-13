@@ -21,13 +21,18 @@ section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;}
 
 	iframe
 	{
 		align-self: center;
+	}
+
+	.piece
+	{
+		width: 50%;
+		margin: auto;
 	}
 
 article, aside, details, figcaption, figure,
@@ -40,6 +45,17 @@ body {
 
 ol, ul {
 	list-style: none;
+	
+}
+
+.feature-list
+{
+	text-align: left;
+}
+
+.high-level
+{
+	text-align: left;
 }
 
 blockquote, q {
@@ -226,6 +242,7 @@ input, select, textarea {
 
 	p, ul, ol, dl, table {
 		margin-bottom: 2em;
+
 	}
 
 	br.clear {
@@ -1788,10 +1805,18 @@ input, select, textarea {
 				height: 48px;
 			}
 
-		.image.fit {
+		.image.fit 
+		{
 			display: block;
 			width: 60%;
 			padding: 1em;
+		}
+
+		.image.fit.piece
+		{
+			display: block;
+			width: 80%;
+			margin: auto
 		}
 
 		.image.featured {
@@ -2015,7 +2040,7 @@ input, select, textarea {
 		{
 			background: #fff;
 			margin: 0;
-			padding: 10px 0px 10px 0px;
+			padding: 15px 25px 15px 25px;
 			font-size: 0.8em;
 		}
 
@@ -2039,11 +2064,6 @@ input, select, textarea {
 		align-items: center;
 		flex-direction: row; 
 	}
-
-		
-		
-
-
 			
 
 /* Icons */
