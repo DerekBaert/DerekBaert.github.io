@@ -37,3 +37,10 @@ let imgModal = (src) =>
     modal.append(innermodal);
 };
 
+$(document).keydown(function(event) { 
+    if (event.keyCode == 27) 
+    { 
+        document.querySelector(".modal").remove();
+    }
+  });
+
