@@ -16,7 +16,9 @@ images.forEach((img) =>
 let imgModal = (src) => 
 {
     const modal = document.createElement("div");
+    const innermodal = document.createElement("div");
     modal.setAttribute("class", "modal");
+    innermodal.setAttribute("class", "innermodal");
     //add the modal to the main section or the parent element
     document.querySelector(".four").append(modal);
     //adding image to modal
@@ -31,6 +33,7 @@ let imgModal = (src) =>
     {
         modal.remove();
     };
-    modal.append(newImage, closeBtn);
+    innermodal.append(newImage, closeBtn);
+    modal.append(innermodal);
 };
 

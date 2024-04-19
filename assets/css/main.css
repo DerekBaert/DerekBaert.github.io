@@ -10,7 +10,8 @@
 
 /*Image modal*/
 
-.modal {
+.modal 
+{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -23,6 +24,14 @@
     animation: zoom 0.3s ease-in-out;
 }
 
+.innermodal
+{
+	margin: 100px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
 @keyframes zoom {
     from {
         transform: scale(0);
@@ -32,16 +41,14 @@
     }
 }
 .modal img {
-    width: 50%;
+    width: 70%;
     object-fit: cover;
 }
 
 .closeBtn {
     color: rgba(255, 255, 255, 0.87);
     font-size: 25px;
-    position: absolute;
-    top: 5%;
-    right: 10%;
+	align-self: flex-start;
     margin: 20px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
