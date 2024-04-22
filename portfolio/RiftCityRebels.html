@@ -147,10 +147,40 @@
 											influenced by professional wrestling, with some more fantastical abilities added to showcase his plant based powers.
 											To tie in his Folk Horror inspiration, his backstory positioned him as the "boogeyman" of the games world, punishing those who wander into his territory.
 										</p>	
-										<img src="../images/Warden.png" class="image fit">
+										<img src="../images/RCR_Cinematic.gif" class="image fit">
 																
 									</header>
 								</article>																					
+							</div>							
+							<h3>Dynamic Camera</h3>
+							<div class="row">										
+								<article class="item">	
+									<header class ="feature">	
+										<img src="../images/RCR_Camera.gif" alt="" class = "image fit"/>									
+										<p class="feature-paragraph">
+											One system I was in charge of developing was the in match camera. As there are multiple players moving around the screen during a match, 
+											this system needed to move the camera to follow the action of the match, zoom in and out to best fit all characters on screen, and constrain the camera to the bounds of the level.
+											To do this, I calculated a value between 0 and 1 to represent how far apart the players were from each other (0 being right beside each other, and 1 being at opposite ends of the map). 
+											Using this value, I was able to determine how far to zoom the camera out, as well as recalculate where the level bounds for the camera should be.
+											With these set, I would continously move the camera toward the centrer point of all players, while keeping it constrained to the bounds calculated before.
+										</p>										
+									</header>		
+								</article>											
+							</div>
+							<h3>Cinematics</h3>
+							<div class="row">										
+								<article class="item">	
+									<header class ="feature">
+										<p class="feature-paragraph">
+											Another feature I worked on was the integration of the cinematic sequences that would play at the character select screen and the results screen after a match.
+											This system needed to determine which sequence to play based on which character it was for, as well as reflect which colour scheme the character was currently using.
+											To do this, I created a Map which used the different character classes as keys, and their sequence for the character select or results screen as the value. When a character was selected, or a match was over, 
+											we would reference a struct of the player data which showed which player selected which character, and which colour variant they were using. With this we could easily look up which sequence to play, and change 
+											the material used by the character in the sequence to match the player's colour. 
+										</p>
+										<img src="../images/RCR_CharacterSelect.gif" alt="" class = "image fit"/>
+									</header>		
+								</article>											
 							</div>
 							<h3>Manager Systems</h3>
 							<div class="row">										
@@ -170,38 +200,7 @@
 										</p>
 									</header>		
 								</article>											
-							</div>
-							<h3>Dynamic Camera</h3>
-							<div class="row">										
-								<article class="item">	
-									<header class ="feature">										
-										<p class="feature-paragraph">
-											One system I was in charge of developing was the in match camera. As the players are moving around the screen a lot, a system was developed to 
-											continually track their positions and calculate a center point for the camera to move towards. 
-											As the game allowed for up to 4 players in a fight, the camera needed to be able to zoom in and out based on the distance between them. This was handled by 
-											tracking the furthest distance between any two players to determine how far the camera needs to zoom in or out to keep everyone on screen.
-											This introduced a new problem, where if the camera was zoomed out enough, it would show the sections of the level that were not intended for view. To resolve this, 
-											I set up two bounding boxes in the camera actor; one for the bounds the camera was allowed in when it was fully zoomed out, and one for when it was fully zoomed in. 
-											I would then calculate how much the camera was zoomed out on a scale of 0 to 1, and use that value to determine where between the two bounding boxes 
-											the camera needed to be constrained to.
-										</p>
-										<img src="../images/TransitMapMockup.png" alt="" class = "image fit"/>
-									</header>		
-								</article>											
-							</div>
-							<h3>Training Mode</h3>
-							<div class="row">										
-								<article class="item">	
-									<header class ="feature">
-										<p class="feature-paragraph">
-											To help with testing of certain abilites, a training mode was set up to allow us to set up an AI that would repeat a single action. 
-											This mode was set up with a UI element that would allow us to set which action they would repeat (Move, Jump, Attack, Parry), as well as the ability to change the
-											player's or AI's character in the match.
-										</p>
-										<img src="../images/RCR_Training.png" alt="" class = "image fit"/>
-									</header>		
-								</article>											
-							</div>
+							</div>							
 						</div>						
 					</section>
 		<!-- Footer -->
