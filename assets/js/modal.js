@@ -1,4 +1,4 @@
-const images = document.querySelectorAll(".image");
+const images = document.querySelectorAll(".image.fit");
 let imgSrc;
 // get images src onclick
 images.forEach((img) => 
