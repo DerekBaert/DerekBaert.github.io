@@ -8,6 +8,7 @@
 	<head>
 		<title>Derek Baert</title>
 		<script defer src="assets/js/modal.js"></script>
+		<script defer src="assets/js/tabs.js"></script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -62,7 +63,7 @@
 					<section id="top" class="one dark cover">
 						<div class="container">
 							<header>
-								<p>Hi, I'm Derek, a Game Developer and Designer from Canada.  I am currently enrolled in the Game Development Program at Red River College, set to graduate in April 2024.</br>
+								<p>Hi, I'm Derek, a Game Developer and Designer from Canada.</br>
 									I have always wanted to work in a creative field, and chose a career in games because I love the unique narrative experiences that only an interactive medium can offer.</br>
 									Below are some featured projects I've worked on. <br>You can also view my page on <a href= "https://derekbaert.itch.io/">itch.io</a>, or my <a href="DerekBaert_Resume.pdf">Resume</a>.<br>To reach me, feel free to connect with me on <a href="https://www.linkedin.com/in/derekbaert/">LinkedIn</a> or <a href = "mailto: derek.baert@gmail.com">email me.</a></p>
 
@@ -76,87 +77,144 @@
 							<header>
 								<h2>Portfolio</h2>
 							</header>
-							
-							<div class="row">								
-								<a href="portfolio/RiftCityRebels.html">
-								<article class="item">
-									<h3>Rift City Rebels</h3>
-									<header class="feature">
-										<div class="piece">
-											<img src="images/RiftCityRebels_Color.png" alt="" class = "image fit piece"/>
-											<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
-										</div>
-										<div class="piece">
-											<p class="high-level">
-												Rift City Rebels is a Platform Fighter developed as the capstone project for my Game Development program. 
-												In this project I worked with 5 other developers and 12 artists. Some features I worked on are:
-												<ul class="feature-list">
-													<li>Designed character concept and moveset.</li>
-													<li>Worked with artist to develop visual design of character.</li>
-													<li>Created dynamic camera system</li>
-													<li>Developed manager classes to monitor game interactions</li>
-													<li>Integrated in engine animations and cutscenes.</li>
-													<li>Participate in weekly stand up meetings to update team on progress and blocks.</li>
-												</ul>
-											</p>
-										</div>										
-									</header>
-								</article>
-								</a>
+							<div class="tab">
+								<button class="tablinks" onclick="changeTab(event, 'Design')" id="defaultOpen">Design</button>
+								<button class="tablinks" onclick="changeTab(event, 'Programming')">Programming</button>
+							</div>							
+							<div id="Design" class="tabcontent">
+								<div class="row">								
+									<a href="portfolio/RiftCityRebels.html">
+									<article class="item">
+										<h3>Rift City Rebels</h3>
+										<header class="feature">
+											<div class="piece">
+												<img src="images/RiftCityRebels_Color.png" alt="" class = "image fit piece"/>
+												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
+											</div>
+											<div class="piece">
+												<p class="high-level">
+													Rift City Rebels is a Platform Fighter developed as the capstone project for my Game Development program. 
+													In this project I worked with 5 other developers and 12 artists. Some features I worked on are:
+													<ul class="feature-list">
+														<li>Designed character concept and moveset.</li>
+														<li>Worked with artist to develop visual design of character.</li>
+														<li>Created dynamic camera system</li>
+														<li>Developed manager classes to monitor game interactions</li>
+														<li>Integrated in engine animations and cutscenes.</li>
+														<li>Participate in weekly stand up meetings to update team on progress and blocks.</li>
+													</ul>
+												</p>
+											</div>										
+										</header>
+									</article>
+									</a>
+								</div>
+								<div class="row">
+									<a href="portfolio/Spearguy.html">
+									<article class="item">
+										<h3>Spearguy</h3>
+										<header class="feature">
+											<div class="piece">
+												<img src="images/Spearguy_Cover.png" alt="" class = "image fit piece"/>
+												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
+											</div>
+											<div class="piece">
+												<p class="high-level">
+													Spearguy is a game I designed and developed myself as an exercise in mechanic and level design. 
+													<ul class="feature-list">
+														<li>Designed character concept and core mechanic</li>
+														<li>Programmed behaviour of player character, enemies and world interactions.</li>
+														<li>Designed challenges and level for player to traverse.</li>
+														<li>Created screen transition system.</li>
+														<li>Playtested mechanic and challenges, and integrated feedback into project.</li>
+													</ul>
+												</p>
+											</div>										
+										</header>
+									</article>
+									</a>
+								</div>
+							</div>
+							<div id="Programming" class="tabcontent">
+								<div class="row">								
+									<a href="portfolio/RiftCityRebels.html">
+									<article class="item">
+										<h3>Rift City Rebels</h3>
+										<header class="feature">
+											<div class="piece">
+												<img src="images/RiftCityRebels_Color.png" alt="" class = "image fit piece"/>
+												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
+											</div>
+											<div class="piece">
+												<p class="high-level">
+													Rift City Rebels is a Platform Fighter developed as the capstone project for my Game Development program. 
+													In this project I worked with 5 other developers and 12 artists. Some features I worked on are:
+													<ul class="feature-list">
+														<li>Designed character concept and moveset.</li>
+														<li>Worked with artist to develop visual design of character.</li>
+														<li>Created dynamic camera system</li>
+														<li>Developed manager classes to monitor game interactions</li>
+														<li>Integrated in engine animations and cutscenes.</li>
+														<li>Participate in weekly stand up meetings to update team on progress and blocks.</li>
+													</ul>
+												</p>
+											</div>										
+										</header>
+									</article>
+									</a>
+								</div>
+								<div class="row">
+									<a href="portfolio/VirtualHouseEditor.html">
+									<article class="item">
+										<h3>Virtual House Editor</h3>
+										<header class="feature">
+											<div class="piece">
+												<img src="images/RoomEditor.png" alt="" class = "image fit piece"/>
+												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
+											</div>
+											<div class="piece">
+												<p class="high-level">
+													Virtual House Editor is a project developed for an external client where I worked alongside three artists as the sole programmer. Responsbilities included:
+													<ul class="feature-list">
+														<li>Developed systems which allowed users to change visual elements of the house.</li>
+														<li>Collaborate with artists to balance visual fidelity and performance.</li>
+														<li>Develop multiple movement options for ease of use and accessibility.</li>
+														<li>Communicate with client about project status and solicit feedback.</li>
+														<li>Participate in weekly stand up meetings to update team on progress and blocks.</li>
+													</ul>
+												</p>
+											</div>										
+										</header>
+									</article>
+									</a>
+								</div>
+								<div class="row">
+									<a href="portfolio/Zecromancer.html">
+									<article class="item">
+										<h3>Zecromancer</h3>
+										<header class="feature">
+											<div class="piece">
+												<img src="images/ZecromancerLogo.png" alt="" class = "image fit piece"/>
+												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
+											</div>
+											<div class="piece">
+												<p class="high-level">
+													Zecromancer is a VR Prototype in which you control a hoard of zombies to defeat soldiers and tear down obstacles. 
+													For this project I worked with one other programmer and 6 artists. Features I created were:
+													<ul class="feature-list">
+														<li>Programmed AI behaviours, including Zombie NPC behaviour which could be influenced by player inputs.</li>
+														<li>Created development tools to automate workflow of converting animations to vertex animations using Unreal's AnimToTexture plugin.</li>
+														<li>Programmed system to change animations of NPCs which used vertex animations in place of skeletal animations.</li>
+													</ul>
+												</p>
+											</div>										
+										</header>
+									</article>
+									</a>
+								</div>								
 							</div>
 							
-							<div class="row">
-								<a href="portfolio/VirtualHouseEditor.html">
-								<article class="item">
-									<h3>Virtual House Editor</h3>
-									<header class="feature">
-										<div class="piece">
-											<img src="images/RoomEditor.png" alt="" class = "image fit piece"/>
-											<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
-										</div>
-										<div class="piece">
-											<p class="high-level">
-												Virtual House Editor is a project developed for an external client where I worked alongside three artists as the sole programmer. Responsbilities included:
-												<ul class="feature-list">
-													<li>Developed systems which allowed users to change visual elements of the house.</li>
-													<li>Collaborate with artists to balance visual fidelity and performance.</li>
-													<li>Develop multiple movement options for ease of use and accessibility.</li>
-													<li>Communicate with client about project status and solicit feedback.</li>
-													<li>Participate in weekly stand up meetings to update team on progress and blocks.</li>
-												</ul>
-											</p>
-										</div>										
-									</header>
-								</article>
-								</a>
-							</div>
-							
-							<div class="row">
-								<a href="portfolio/Spearguy.html">
-								<article class="item">
-									<h3>Spearguy</h3>
-									<header class="feature">
-										<div class="piece">
-											<img src="images/Spearguy_Cover.png" alt="" class = "image fit piece"/>
-											<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
-										</div>
-										<div class="piece">
-											<p class="high-level">
-												Spearguy is a game I designed and developed myself as an exercise in mechanic and level design. 
-												<ul class="feature-list">
-													<li>Designed character concept and core mechanic</li>
-													<li>Programmed behaviour of player character, enemies and world interactions.</li>
-													<li>Designed challenges and level for player to traverse.</li>
-													<li>Created screen transition system.</li>
-													<li>Playtested mechanic and challenges, and integrated feedback into project.</li>
-												</ul>
-											</p>
-										</div>										
-									</header>
-								</article>
-								</a>
-							</div>
-							
+							<!--
 							<div class="row">
 								<a href="portfolio/Cavern Escape.html">
 								<article class="item">
@@ -181,32 +239,6 @@
 								</article>
 								</a>
 							</div>
-							
-							<div class="row">
-								<a href="portfolio/Zecromancer.html">
-								<article class="item">
-									<h3>Zecromancer</h3>
-									<header class="feature">
-										<div class="piece">
-											<img src="images/ZecromancerLogo.png" alt="" class = "image fit piece"/>
-											<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
-										</div>
-										<div class="piece">
-											<p class="high-level">
-												Zecromancer is a VR Prototype in which you control a hoard of zombies to defeat soldiers and tear down obstacles. 
-												For this project I worked with one other programmer and 6 artists. Features I created were:
-												<ul class="feature-list">
-													<li>Programmed AI behaviours, including Zombie NPC behaviour which could be influenced by player inputs.</li>
-													<li>Created development tools to automate workflow of converting animations to vertex animations using Unreal's AnimToTexture plugin.</li>
-													<li>Programmed system to change animations of NPCs which used vertex animations in place of skeletal animations.</li>
-												</ul>
-											</p>
-										</div>										
-									</header>
-								</article>
-								</a>
-							</div>
-							
 							<div class="row">
 								<a href="portfolio/CanyonEscape.html">
 								<article class="item">
@@ -231,6 +263,8 @@
 								</article>
 								</a>
 							</div>
+							!-->
+							<header>
 								<h2>Game Jams</h2>
 							</header>
 								<div class="row">
