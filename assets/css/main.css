@@ -25,6 +25,7 @@
 	cursor: pointer;
 	padding: 14px 16px;
 	transition: 0.3s;
+	background-color: #8797b4;
   }
 
   /* Change background color of buttons on hover */
@@ -36,7 +37,7 @@
   /* Create an active/current tablink class */
   .tab button.active 
 {
-	background-color: #4fc0ad;
+	background-color: #4f77c0;
 }
   
   /* Style the tab content */
