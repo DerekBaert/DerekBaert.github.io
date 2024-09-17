@@ -78,11 +78,10 @@
 								<h2>Portfolio</h2>
 							</header>
 							<div class="tab">
-								<button class="tablinks" onclick="changeTab(event, 'Design')" id="defaultOpen">Design</button>
-								<button class="tablinks" onclick="changeTab(event, 'Programming')">Programming</button>
-								<button class="tablinks" onclick="changeTab(event, 'Game Jams')">Game Jams</button>
-							</div>							
-							<div id="Design" class="tabcontent">
+								<button class="tablinks" onclick="changeTab(event, 'Major Projects')" id="defaultOpen">Major Projects</button>
+								<button class="tablinks" onclick="changeTab(event, 'Game Jam Projects')">Game Jam Projects</button>
+							</div>					
+							<div id="Major Projects" class="tabcontent">
 								<div class="row">								
 									<a href="portfolio/RiftCityRebels.html">
 									<article class="item">
@@ -97,12 +96,13 @@
 													Rift City Rebels is a Platform Fighter developed as the capstone project for my Game Development program. 
 													In this project I worked with 5 other developers and 12 artists. Some features I worked on are:
 													<ul class="feature-list">
-														<li>Designed character concept and moveset.</li>
-														<li>Worked with artist to develop visual design of character.</li>
-														<li>Created dynamic camera system</li>
-														<li>Developed manager classes to monitor game interactions</li>
-														<li>Integrated in engine animations and cutscenes.</li>
-														<li>Participate in weekly stand up meetings to update team on progress and blocks.</li>
+														
+														<li>Developed a camera system by calculating player positions to position the camera and determine zoom to show up to 4 players on screen at once.</li>
+														<li>Developed a comprehensive system for tracking player character selections, game modes, and match statistics, displaying results post-match for all 4 players.</li>
+														<li>Developed a training mode that allowed players to select 5 enemy AI presets, and dynamically swap between all 7 playable characters to test out their unique moves.</li>
+														<li>Designed a moveset consisting of 9 distinct abilities by researching frame data and real-world references to develop a unique and cohesive moveset, including a tether ability for pulling opponents into melee range.</li>
+														<li>Collaborated with a 3D artist to design a playable character, creating mood boards and reference materials to create a character with a unique design.</li>
+														<li>Regularly wrote and submitted patch notes bi-weekly for review, explaining rationale for balance changes made in the game.</li>
 													</ul>
 												</p>
 											</div>										
@@ -110,60 +110,7 @@
 									</article>
 									</a>
 								</div>
-								<div class="row">
-									<a href="portfolio/Spearguy.html">
-									<article class="item">
-										<h3>Spearguy</h3>
-										<header class="feature">
-											<div class="piece">
-												<img src="images/Spearguy_Cover.png" alt="" class = "image fit piece"/>
-												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
-											</div>
-											<div class="piece">
-												<p class="high-level">
-													Spearguy is a game I designed and developed myself as an exercise in mechanic and level design. 
-													<ul class="feature-list">
-														<li>Designed character concept and core mechanic</li>
-														<li>Programmed behaviour of player character, enemies and world interactions.</li>
-														<li>Designed challenges and level for player to traverse.</li>
-														<li>Created screen transition system.</li>
-														<li>Playtested mechanic and challenges, and integrated feedback into project.</li>
-													</ul>
-												</p>
-											</div>										
-										</header>
-									</article>
-									</a>
-								</div>
-							</div>
-							<div id="Programming" class="tabcontent">
-								<div class="row">								
-									<a href="portfolio/RiftCityRebels.html">
-									<article class="item">
-										<h3>Rift City Rebels</h3>
-										<header class="feature">
-											<div class="piece">
-												<img src="images/RiftCityRebels_Color.png" alt="" class = "image fit piece"/>
-												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
-											</div>
-											<div class="piece">
-												<p class="high-level">
-													Rift City Rebels is a Platform Fighter developed as the capstone project for my Game Development program. 
-													In this project I worked with 5 other developers and 12 artists. Some features I worked on are:
-													<ul class="feature-list">
-														<li>Designed character concept and moveset.</li>
-														<li>Worked with artist to develop visual design of character.</li>
-														<li>Created dynamic camera system</li>
-														<li>Developed manager classes to monitor game interactions</li>
-														<li>Integrated in engine animations and cutscenes.</li>
-														<li>Participate in weekly stand up meetings to update team on progress and blocks.</li>
-													</ul>
-												</p>
-											</div>										
-										</header>
-									</article>
-									</a>
-								</div>
+
 								<div class="row">
 									<a href="portfolio/VirtualHouseEditor.html">
 									<article class="item">
@@ -189,6 +136,33 @@
 									</article>
 									</a>
 								</div>
+
+								<div class="row">
+									<a href="portfolio/Spearguy.html">
+									<article class="item">
+										<h3>Spearguy</h3>
+										<header class="feature">
+											<div class="piece">
+												<img src="images/Spearguy_Cover.png" alt="" class = "image fit piece"/>
+												<p>Student Project (Group)</br>Designer, Developer</br>Unreal</p>
+											</div>
+											<div class="piece">
+												<p class="high-level">
+													Spearguy is a game I designed and developed myself as an exercise in mechanic and level design. 
+													<ul class="feature-list">
+														<li>Designed character concept and core mechanic</li>
+														<li>Programmed behaviour of player character, enemies and world interactions.</li>
+														<li>Designed challenges and level for player to traverse.</li>
+														<li>Created screen transition system.</li>
+														<li>Playtested mechanic and challenges, and integrated feedback into project.</li>
+													</ul>
+												</p>
+											</div>										
+										</header>
+									</article>
+									</a>
+								</div>
+								
 								<div class="row">
 									<a href="portfolio/Zecromancer.html">
 									<article class="item">
@@ -214,7 +188,8 @@
 									</a>
 								</div>								
 							</div>
-							<div id="Game Jams" class="tabcontent">
+
+							<div id="Game Jam Projects" class="tabcontent">
 								<header>
 									<h2>Game Jams</h2>
 								</header>
