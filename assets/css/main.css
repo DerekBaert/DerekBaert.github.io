@@ -121,7 +121,6 @@ footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
 	font: inherit;
 	vertical-align: baseline;}
 
@@ -304,12 +303,14 @@ input, select, textarea {
 
 	a {
 		text-decoration: none;
-		color: inherit;
+		color: #3c6cc5;
+		font-size: 19pt;
 		-moz-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-webkit-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-ms-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		outline: 0;
+		margin-bottom: 10px;
 	}
 		a article:hover
 		{
@@ -1878,7 +1879,7 @@ input, select, textarea {
 		}
 
 		.row > section, .row > article {
-			margin-bottom: 0;
+			margin-bottom: 40px;
 		}
 
 /* Image */
@@ -2133,7 +2134,7 @@ input, select, textarea {
 	.item {
 		
 		/*border: 0.01px solid #c1c5c5;*/
-		margin-bottom: 40px;
+		margin-bottom: 50px;
 		
 	}
 
