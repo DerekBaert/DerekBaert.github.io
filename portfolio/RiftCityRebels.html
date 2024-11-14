@@ -163,6 +163,7 @@
 											To do this, I calculated a value between 0 and 1 to represent how far apart the players were from each other (0 being right beside each other, and 1 being at opposite ends of the map). 
 											Using this value, I was able to determine how far to zoom the camera out, as well as recalculate where the level bounds for the camera should be.
 											With these set, I would continously move the camera toward the centrer point of all players, while keeping it constrained to the bounds calculated before.
+										</br><a href="DerekBaert_CameraSystem.pdf">Code Walkthrough</a>
 										</p>										
 									</header>		
 								</article>											
@@ -177,6 +178,7 @@
 											To do this, I created a Map which used the different character classes as keys, and their sequence for the character select or results screen as the value. When a character was selected, or a match was over, 
 											we would reference a struct of the player data which showed which player selected which character, and which colour variant they were using. With this we could easily look up which sequence to play, and change 
 											the material used by the character in the sequence to match the player's colour. 
+										</br><a href="DerekBaert_AnimationIntegration.pdf">Code Walkthrough</a>
 										</p>
 										<img src="../images/RCR_CharacterSelect.gif" alt="" class = "image fit"/>
 									</header>		
@@ -197,7 +199,9 @@
 											The Game Mode for the matches would track all of the players statistics. This included how many times they were knocked out, how many other players they knocked out, the damage they dealt, etc.
 											This information was very useful after playtests, as we could compare how much damage the characters dealt, who won the most, and any other relevant comparisons to inform game balance.
 											We also displayed some of this information to to the player after each match, so they could see how well they did.
+										</br><a href="DerekBaert_GameManagementSystem.pdf">Code Walkthrough</a>
 										</p>
+									
 									</header>		
 								</article>											
 							</div>							
