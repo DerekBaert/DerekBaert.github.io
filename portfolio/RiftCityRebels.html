@@ -54,8 +54,7 @@
 							<header>
 								<h2>Rift City Rebels</h2>
 								<p>Rift City Rebels is a Platform fighter set in a near-future Winnipeg. It is the final group project in my college program, 
-									developed by 6 Developers and 12 Artists over the course of 4 months.<br>As this game is currently being developed, this page is still a work in progress.
-									Working with a team of this size on a larger project has been a very challenging but rewarding experience so far, with many opportunities to develop our skills in terms of keeping the scope of the project reasonable while still making something we are proud of.
+									developed by 6 Developers and 12 Artists over the course of 4 months. </br> Working with a team of this size on a larger project has been a very challenging but rewarding experience so far, with many opportunities to develop our skills in terms of keeping the scope of the project reasonable while still making something we are proud of.
 								</p>
 							</header>
 						</div>
@@ -162,8 +161,8 @@
 											this system needed to move the camera to follow the action of the match, zoom in and out to best fit all characters on screen, and constrain the camera to the bounds of the level.
 											To do this, I calculated a value between 0 and 1 to represent how far apart the players were from each other (0 being right beside each other, and 1 being at opposite ends of the map). 
 											Using this value, I was able to determine how far to zoom the camera out, as well as recalculate where the level bounds for the camera should be.
-											With these set, I would continously move the camera toward the centrer point of all players, while keeping it constrained to the bounds calculated before.
-										</br><a href="DerekBaert_CameraSystem.pdf">Code Walkthrough</a>
+											With these set, I would continously move the camera toward the centrer point of all players, while keeping it constrained to the bounds calculated before. 
+											<br><a href="DerekBaert_CameraSystem.pdf">Code Walkthrough</a>
 										</p>										
 									</header>		
 								</article>											
@@ -178,7 +177,7 @@
 											To do this, I created a Map which used the different character classes as keys, and their sequence for the character select or results screen as the value. When a character was selected, or a match was over, 
 											we would reference a struct of the player data which showed which player selected which character, and which colour variant they were using. With this we could easily look up which sequence to play, and change 
 											the material used by the character in the sequence to match the player's colour. 
-										</br><a href="DerekBaert_AnimationIntegration.pdf">Code Walkthrough</a>
+											<br><a href="DerekBaert_AnimationIntegration.pdf">Code Walkthrough</a>
 										</p>
 										<img src="../images/RCR_CharacterSelect.gif" alt="" class = "image fit"/>
 									</header>		
@@ -198,10 +197,9 @@
 											was assigned to the correct player. This map was then transferred to the Game Mode for the match once it started.
 											The Game Mode for the matches would track all of the players statistics. This included how many times they were knocked out, how many other players they knocked out, the damage they dealt, etc.
 											This information was very useful after playtests, as we could compare how much damage the characters dealt, who won the most, and any other relevant comparisons to inform game balance.
-											We also displayed some of this information to to the player after each match, so they could see how well they did.
-										</br><a href="DerekBaert_GameManagementSystem.pdf">Code Walkthrough</a>
-										</p>
-									
+											We also displayed some of this information to to the player after each match, so they could see how well they did. 
+										<br><a href="DerekBaert_GameManagementSystem.pdf">Code Walkthrough</a>
+										</p>									
 									</header>		
 								</article>											
 							</div>							
