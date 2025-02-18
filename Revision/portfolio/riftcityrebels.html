@@ -6,6 +6,7 @@
         <title>Derek Baert</title>
         <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">-->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/styles.css" rel="stylesheet">
         <script defer src="../js/bootstrap.bundle.min.js"></script>    
     </head>
     <body>
@@ -61,7 +62,8 @@
             </div>
         </nav>
         <div class="container sm">
-          <div class="row">
+          <!--Info-->
+          <div class="row border" id="quickinfo">
             <div class="col">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -72,8 +74,8 @@
                 </li>  
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
-                    <div class="fw-bold">Tech Stack</div>
-                    Unreal Engine 5, Blueprints
+                    <div class="fw-bold">Tools</div>
+                    Unreal Engine 5, Perforce
                   </div>
                 </li> 
                 <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -81,7 +83,13 @@
                     <div class="fw-bold">Team Size</div>
                     18 (12 Artists, 6 Programmers)
                   </div>
-                </li>        
+                </li> 
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold">Development Time</div>
+                    4 months
+                  </div>
+                </li>       
               </ul>            
             </div>
             <div class="col">
@@ -101,98 +109,110 @@
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">Available on</div>
-                    <a href="https://dobibo.itch.io/rift-city-rebels">Itch.io</a>
+                    <a href="https://dobibo.itch.io/rift-city-rebels" class="btn btn-primary">Itch.io</a>
                   </div>
                 </li>
               </ul>
             </div>
           </div>
-          <!--Warden-->
           <div class="row">
-            <div class="col">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#warden" aria-expanded="true" aria-controls="warden">
-                Warden
-              </button>
-            </div>
+            <p class="lead">
+              Rift City Rebels is a Platform Fighter developed as the capstone project for my Game Development program. Inspired by the Smash Bros. series and Rivals of Aether, our goal was to use these as a template to create a fun and polished gameplay experience.
+            </p>
+            <p class="lead">
+              My personal goals for this project were to take ownership of one of the playable characters, including their design and combat, develop major systems, such as the camera, game manager, and implementaion of cinematics. I also positioned myself as the go-to programmer for the artists when it came to tech art related problems.
+            </p>
           </div>
-          <div class="collapse show" id="warden">
-            <div class="row">
-              <h1>Warden</h1>
-              <div class="col">
-                <img src="../images/RCR_Cinematic.gif" class="img-fluid" alt="...">
-              </div>
-              <div class="col">
-                <p>Each programmer was paired with an artist to develop and design one of the playable fighters in the game. The character concept I pitched is Warden, folk horror inspired Monster with nature themes. Together with the artist I was paired with, we further developed his look, moveset and personal history. His physique informed a heavy hitting playstyle with moves influenced by professional wrestling, with some more fantastical abilities added to showcase his plant based powers. To tie in his Folk Horror inspiration, his backstory positioned him as the "boogeyman" of the games world, punishing those who wander into his territory. </p>
-              </div>
-            </div>
-          </div>
-          <!--Camera-->
-          <div class="row">
-            <div class="col">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#camera" aria-expanded="true" aria-controls="camera">
-                Dynamic Camera System
-              </button>
-            </div>
-          </div>
-          <div class="collapse show" id="camera">
-            <div class="row">
-              <h1>Dynamic Camera System</h1>
-              <div class="col">
-                <img src="../images/RCR_Camera.gif" class="img-fluid" alt="...">
-              </div>
-              <div class="col">
-                <p>
-                  One system I was in charge of developing was the in match camera. As there are multiple players moving around the screen during a match, this system needed to move the camera to follow the action of the match, zoom in and out to best fit all characters on screen, and constrain the camera to the bounds of the level. To do this, I calculated a value between 0 and 1 to represent how far apart the players were from each other (0 being right beside each other, and 1 being at opposite ends of the map). Using this value, I was able to determine how far to zoom the camera out, as well as recalculate where the level bounds for the camera should be. With these set, I would continously move the camera toward the centrer point of all players, while keeping it constrained to the bounds calculated before. 
-                </p>
-                <a href="../../portfolio/DerekBaert_CameraSystem.pdf">Code Snippet</a>
+          <!--Features-->
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Warden
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/RCR_Cinematic.gif" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col">
+                      <p>Each programmer was paired with an artist to develop and design one of the playable fighters in the game. The character concept I pitched is Warden, folk horror inspired Monster with nature themes. Together with the artist I was paired with, we further developed his look, moveset and personal history. His physique informed a heavy hitting playstyle with moves influenced by professional wrestling, with some more fantastical abilities added to showcase his plant based powers. To tie in his Folk Horror inspiration, his backstory positioned him as the "boogeyman" of the games world, punishing those who wander into his territory. </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>  
-          <!--Cinematic Integration-->
-          <div class="row">
-            <div class="col">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#cinematics" aria-expanded="true" aria-controls="cinematics">
-                Cinematic Integration
-              </button>
-            </div>
-          </div>
-          <div class="collapse show" id="cinematics">
-            <div class="row">
-              <h1>Cinematic Integration</h1>
-              <div class="col">
-                <img src="../images/RCR_CharacterSelect.gif" class="img-fluid" alt="...">
-              </div>
-              <div class="col">
-                <p>
-                  Another feature I worked on was the integration of the cinematic sequences that would play at the character select screen and the results screen after a match. This system needed to determine which sequence to play based on which character it was for, as well as reflect which colour scheme the character was currently using. To do this, I created a Map which used the different character classes as keys, and their sequence for the character select or results screen as the value. When a character was selected, or a match was over, we would reference a struct of the player data which showed which player selected which character, and which colour variant they were using. With this we could easily look up which sequence to play, and change the material used by the character in the sequence to match the player's colour. 
-                </p>
-                <a href="../../portfolio/DerekBaert_AnimationIntegration.pdf">Code Snippet</a>
-              </div>
-            </div>
-          </div> 
-          <!--Data Management-->
-          <div class="row">
-            <div class="col">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#manager" aria-expanded="true" aria-controls="manager">
-                Data Management
-              </button>
-            </div>
-          </div>
-          <div class="collapse show" id="manager">
-            <div class="row">
-              <h1>Data Management</h1>
-              <div class="col">
-                <img src="../images/RCR_Results.gif" class="img-fluid" alt="...">
-              </div>
-              <div class="col">
-                <p>
-                  A major system I worked on for this project was the Game Manager systems, or 'Game Modes' in Unreal Engine. These consisted of two major Game Modes; the menu game mode and the match game mode
-The menu game mode handled all of the player selections in the menus leading up to the match itself. To handle this, I created a struct to track which character the player selected, as well as any in game statistics that could be used for balancing, or the players score. In the game mode, I then used these structs in a Map with the players controller ID as the key. This way, I could make sure the data in the struct was assigned to the correct player. This map was then transferred to the Game Mode for the match once it started. The Game Mode for the matches would track all of the players statistics. This included how many times they were knocked out, how many other players they knocked out, the damage they dealt, etc. This information was very useful after playtests, as we could compare how much damage the characters dealt, who won the most, and any other relevant comparisons to inform game balance. We also displayed some of this information to to the player after each match, so they could see how well they did. 
-                </p>
-                <a href="../../portfolio/DerekBaert_GameManagementSystem.pdf">Code Snippet</a>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                  Dynamic Camera System
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/RCR_Camera.gif" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col">
+                      <p>
+                        One system I was in charge of developing was the in match camera. As there are multiple players moving around the screen during a match, this system needed to move the camera to follow the action of the match, zoom in and out to best fit all characters on screen, and constrain the camera to the bounds of the level. To do this, I calculated a value between 0 and 1 to represent how far apart the players were from each other (0 being right beside each other, and 1 being at opposite ends of the map). Using this value, I was able to determine how far to zoom the camera out, as well as recalculate where the level bounds for the camera should be. With these set, I would continously move the camera toward the centrer point of all players, while keeping it constrained to the bounds calculated before. 
+                      </p>
+                      <a href="../../portfolio/DerekBaert_CameraSystem.pdf">Code Snippet</a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+                  Cinematic Integration
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <div class="row">
+                    <h1>Cinematic Integration</h1>
+                    <div class="col">
+                      <img src="../images/RCR_CharacterSelect.gif" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col">
+                      <p>
+                        Another feature I worked on was the integration of the cinematic sequences that would play at the character select screen and the results screen after a match. This system needed to determine which sequence to play based on which character it was for, as well as reflect which colour scheme the character was currently using. To do this, I created a Map which used the different character classes as keys, and their sequence for the character select or results screen as the value. When a character was selected, or a match was over, we would reference a struct of the player data which showed which player selected which character, and which colour variant they were using. With this we could easily look up which sequence to play, and change the material used by the character in the sequence to match the player's colour. 
+                      </p>
+                      <a href="../../portfolio/DerekBaert_AnimationIntegration.pdf">Code Snippet</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+                  Data Management
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <div class="row">              
+                    <div class="col">
+                      <img src="../images/RCR_Results.gif" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col">
+                      <p>
+                        A major system I worked on for this project was the Game Manager systems, or 'Game Modes' in Unreal Engine. These consisted of two major Game Modes; the menu game mode and the match game mode
+      The menu game mode handled all of the player selections in the menus leading up to the match itself. To handle this, I created a struct to track which character the player selected, as well as any in game statistics that could be used for balancing, or the players score. In the game mode, I then used these structs in a Map with the players controller ID as the key. This way, I could make sure the data in the struct was assigned to the correct player. This map was then transferred to the Game Mode for the match once it started. The Game Mode for the matches would track all of the players statistics. This included how many times they were knocked out, how many other players they knocked out, the damage they dealt, etc. This information was very useful after playtests, as we could compare how much damage the characters dealt, who won the most, and any other relevant comparisons to inform game balance. We also displayed some of this information to to the player after each match, so they could see how well they did. 
+                      </p>
+                      <a href="../../portfolio/DerekBaert_GameManagementSystem.pdf">Code Snippet</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>   
+        </div> 
     </body> 
 </html>
