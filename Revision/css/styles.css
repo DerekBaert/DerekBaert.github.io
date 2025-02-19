@@ -1,3 +1,7 @@
+@import url("fontawesome-all.min.css");
+@import url("https://kit.fontawesome.com/6cc05e1e8e.js");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+
 nav
 {
     margin-bottom: 100px;
@@ -52,4 +56,9 @@ nav
 #featuresTabs
 {
     margin-top: 20px;
+}
+
+#portfolio-body
+{
+    font-family: 'Source Sans Pro', sans-serif;
 }
