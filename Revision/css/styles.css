@@ -1,15 +1,55 @@
 nav
 {
     margin-bottom: 100px;
+    background-color: white;
+}
+
+.nav-link
+{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(116, 114, 114);
+}
+
+.nav-link:hover
+{
+    color:rgb(0, 0, 0);
 }
 
 #quickinfo
 {
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #quickinfo a
 {
-    color:white;
     text-decoration: none;
+    margin-bottom: 20px;
+}
+
+#quickinfo li
+{
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+#content
+{
+    width: 75%;
+}
+
+#contribution
+{
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+#contribution-list
+{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#featuresTabs
+{
+    margin-top: 20px;
 }
