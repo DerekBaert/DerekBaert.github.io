@@ -67,44 +67,44 @@
           <!--Info-->
           <div class="row" id="quickinfo">
             <div class="col d-flex align-items-center justify-content-center">
-              <img src="../images/WallChanging.gif" class="img-fluid" alt="...">         
+              <img src="../images/ZecromancerLogo.png" class="img-fluid" alt="...">         
             </div>
             <div class="col">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">Roles</div>
-                    Systems and UI Programmer
+                    AI and Tools Programmer
                   </div>
                 </li>  
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">Tools</div>
-                    Unreal Engine 5, Unreal Pixel Streaming Plugin, Unreal Blueprints, Perforce
+                    Unreal Engine, Unreal Blueprints, AnimToTexture Plugin, VR, Perforce
                   </div>
                 </li> 
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">Team Size</div>
-                    4 (1 Programmer, 3 Artists_)
+                    9 (2 programmers, 7 artists)
                   </div>
                 </li> 
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">Development Time</div>
-                    3 Months
+                    6 Weeks
                   </div>
                 </li>       
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">Genre</div>
-                    Real Estate Software
+                    Real Time Strategy
                   </div>
                 </li> 
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">Platform</div>
-                    PC, Browser (Cloud Streaming)
+                    PC
                   </div>
                 </li>   
               </ul>
@@ -112,23 +112,22 @@
           </div>
           <div class="row">
             <p>
-              Virtual House Editor is a project I worked on as the sole developer alongside three artists for our work placement. This was done in collaboration with an external client, who wanted a virtual walkthrough to showcase their custom home services.
-Learning to work with an external client to determine the type of product that we could build to meet their vision without going out of scope was a valuable learning experience for our team, who up until that point had only worked on small, self directed projects. The final product was also quite impressive in terms of what we were able to achieve in a short period of time. 
+              Zecromancer is a VR RTS game in which you play a Necromancer trying to control a horde of Zombies. This game was developed in 6 weeks in a team of two programmers and seven artists. I was able to gain a lot of experience with coding AI, and building a tool to help improve performance for the animations. 
             </p>
             <ul id="contribution-list">
               <li>
                 <p id="contribution">
-                  Developed systems which allowed users to change materials for 5 different house elements, including walls, doors, countertops and roofs.
+                  Programmed AI behaviours, including Zombie NPC behaviour which could be influenced by player inputs.
                 </p>
               </li>
               <li>
                 <p id="contribution">
-                  Developed UI for selecting options for 5 different house elements, including changing the material applied to the mesh, and swapping wall panels for window panels.
+                  Created development tools to automate workflow of converting animations to vertex animations using Unreal's AnimToTexture plugin.
                 </p>
               </li>
               <li>
                 <p id="contribution">
-                  Developed three movement options for ease of use and accessibility, including WASD controls, double clicking the ground to move, and fast traveling between rooms.
+                  Programmed system to change animations of NPCs which used vertex animations in place of skeletal animations.
                 </p>
               </li>
             </ul>       
@@ -140,51 +139,46 @@ Learning to work with an external client to determine the type of product that w
           <!--Features-->       
           <ul class="nav nav-tabs d-none d-lg-flex" id="featuresTabs" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Room Editing</button>
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Vertex Animations</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="camera-tab" data-bs-toggle="tab" data-bs-target="#camera-tab-pane" type="button" role="tab" aria-controls="camera-tab-pane" aria-selected="false">Accessibility</button>
+              <button class="nav-link" id="camera-tab" data-bs-toggle="tab" data-bs-target="#camera-tab-pane" type="button" role="tab" aria-controls="camera-tab-pane" aria-selected="false">Zombie AI System</button>
             </li>
           </ul>
           <div class="tab-content accordion" id="myTabContent">
             <div class="tab-pane fade show active accordion-item" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">          
               <div id="collapseOne" class="accordion-collapse collapse show  d-lg-block" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
                 <div class="accordion-body">
-                  <p>                        As our client specialized in custom homes using a catalogue of predetermined components, they wanted their potential clients to be able to make some adjustments to the house as they toured it. To achieve this, a room editor was created to enter an 'edit mode.' This mode could be accessed either by clicking on a button that was floating in the room, or by selecting the room from the list of rooms in the UI, which would also teleport them to the room in question.
-                    Once in this edit mode, they were shown a menu listing all of the editable elements of the room.     </p>
+                  <p>
+                    In order to render a large crowd of zombies and enemy soldiers at once without sacrificing frame rate, we used Unreal's experimental AnimToTexture plugin to extract skeletal animation data into textures used by the zombie models.
+                  </p>
                   <div class="row">
-                    <h3 class="d-flex align-items-center justify-content-center">Material Selection</h3>
+                    <h3 class="d-flex align-items-center justify-content-center">Automation Tool</h3>
                     <div class="col">
-                      <img src="../images/MaterialChanging.gif" class="img-fluid" alt="...">
+                      <img src="../images/Zecromancer_Anim.gif" class="img-fluid" alt="...">
                     </div>
                     <div class="col">
                       <p>
-                        The primary option the user had for editing the room was changing the finish of the object. Changing the finish was as simple as changing the material applied to the mesh, but communicating this information between the object and the menu was the more challenging task.
-                        Each object contained references to the different materials that could be applied to it, including their descriptions and names. When the player entered the room editor, it would tell the UI what elements in it were available for editing, and pass references to them so that the information about their materials could be used to populate the menu.
+                        Since this plugin is experimental, the workflow was not artist or designer friendly, so a tool was needed to automate the process.
+A designer friendly tool was first developed by Trash Praxis for Unreal 5.1, but due to changes with the plugin after this version, the tool no longer worked. By digging through the code for this tool, as well as the plugin files, I was able to remake the tool to work with version 5.3.
+A more in depth explanation and a look at the code can be found in the following documents:                   
                       </p>
+                      <a href="https://derekbaert.notion.site/Anim-To-Texture-Editor-Utility-Widget-68400ade719b41a29d29fd604e6837d6?pvs=4">Code Breakdown</a>
                     </div>
                   </div>
                   <div class="row">
-                    <h3 class="d-flex align-items-center justify-content-center">Modular Wall Panels</h3>
+                    <h3 class="d-flex align-items-center justify-content-center">Animation Controls</h3>
                     <div class="col">
-                      <img src="../images/WallChanging.gif" class="img-fluid" alt="...">
+                      <img src="../images/Zecromancer_Anim.gif" class="img-fluid" alt="...">
                     </div>
                     <div class="col">
                       <p>
-                        One of the features that our client wanted to highlight was a modular wall and windows system that allowed their client to choose their own wall and window layout. To show this off in the software, each wall panel was set up with a 3D button that appeared in the edit mode. When pressed, the mesh for the wall would swap to a window, and vice versa.
-One extra consideration that needed to be taken into account was that the exterior of the house would need to change to match this as well. To achieve this, an event was set up to broadcast whenever the wall panel was changed. The exterior pieces around it would have a reference to the wall panel, and subscribe to this event, so they could update their materials and/or meshes accordingly. 
+                        Unreal's systems are build assuming the use of Skeletal Animation, so a new system was needed to change the animations of the zombies. When the animations are extracted and stored in the Zombie's textures, they play in a sequence.
+For example, if we extracted data for a running and idle animation, the running animation would play to completion, then the idle animation would play, before looping back to the running animation again.
+As part of the extraction process, a Data Asset is used to store references to all of the information used, including the original skeletal animation as well as the start and end frames for each animation. The material made from these textures has material parameters for the start and end frames, so by referencing the original animations in this data asset to set these parameters, we are able to limit the vertex animation being played.
+A more in depth explanation and a look at the code can be found in the following documents:                
                       </p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <h3 class="d-flex align-items-center justify-content-center">Alternate Camera Angles</h3>
-                    <div class="col">
-                      <img src="../images/CameraChanging.gif" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col">
-                      <p>
-                        To allow the user to get the best view of the room they were editing, some rooms were set up with two camera angles, and a button was added to the menu to allow them to swap between them as needed.
-                      </p>
+                      <a href="https://derekbaert.notion.site/Changing-AnimToTexture-animations-with-the-Behaviour-Tree-f88b2165643a437cbbd63a55f356991a?pvs=4">Code Breakdown</a>
                     </div>
                   </div>
                 </div>
@@ -194,44 +188,49 @@ One extra consideration that needed to be taken into account was that the exteri
             <div class="tab-pane fade accordion-item" id="camera-tab-pane" role="tabpanel" aria-labelledby="camera-tab" tabindex="0">
               <div id="collapseTwo" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
                 <div class="accordion-body">
-                  <p>
-                    To ensure the project was able to reach a wide audience of varying technical backgrounds, it was important to make sure the software was easy to access and easy to use.
-                  </p>
                   <div class="row">
-                    <h3 class="d-flex align-items-center justify-content-center">User Guides</h3>
                     <div class="col">
-                      <img src="../images/UITour.png" class="img-fluid" alt="...">
+                      <img src="../images/Zecromancer_ZombieRun.gif" class="img-fluid" alt="...">
                     </div>
                     <div class="col">
                       <p>
-                        Because the computer literacy of the users for this software could vary wildly, we made sure to include a tour of the features that the user would be interacting with at the very beginning, and a button that would pull up labels for all of the buttons on their UI.                       
+                        As the game revolved around controlling a horde of zombies, I developed an AI system that would respond to the player's commands.
+When the player performed a gesture to command the zombies, each zombie's state would be updated to reflect the new command, which would then inform their behaviour tree.                       
+                      </p>
+                      <a href="https://derekbaert.notion.site/Zombie-AI-System-2bbeac5f5c484e7cacfb71558b0eee79?pvs=4">Code Breakdown</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade accordion-item" id="cinematic-tab-pane" role="tabpanel" aria-labelledby="cinematic-tab" tabindex="0">
+              <div id="collapseThree" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/RCR_CharacterSelect.gif" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col">
+                      <p>
+                        Write-up for feature                      
                       </p>
                     </div>
                   </div>
-                  <div class="row">
-                    <h3 class="d-flex align-items-center justify-content-center">Browser Accessible</h3>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade accordion-item" id="data-tab-pane" role="tabpanel" aria-labelledby="data-tab" tabindex="0">
+              <div id="collapseFour" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingFour" data-bs-parent="#myTabContent">
+                <div class="accordion-body">
+                  <div class="row">            
                     <div class="col">
-                      <img src="../images/BrowserView.png" class="img-fluid" alt="...">
+                      <img src="../images/RCR_Results.gif" class="img-fluid" alt="...">
                     </div>
                     <div class="col">
                       <p>
-                        To ensure users's would be able to run the software from any device, we made this project compatible with Unreal's pixel streaming plugin, which allowed the project to be hosted on a remote service and run through the cloud. This allowed the service to be accessible on any device, including tablets and smartphones. This was a challenging feature to implement, as we wanted to make sure the game ran smoothly over the cloud, but the clients wanted to best possible environment and lighting to showcase their product. We managed to achieve this by carefully managing the texture budget of the project, and capping the frame rate to 30 so that it would remain consistent. 
+                        Write-up for feature                      
                       </p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <h3 class="d-flex align-items-center justify-content-center">Multiple Movement Options</h3>
-                    <div class="col">
-                      <img src="../images/BrowserView.png" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col">
-                      <p>
-                        To ensure anyone would be able to navigate the house, we implemented two different options for moving: Click to Move or Keyboard.
-When using Click to Move, the user simply needs to double click on the ground to 'walk' to the spot that they clicked on, similar to navigating in Google Street View. If their mouse is hovering over an invalid location, then their cursor would display a circle with a line through it, and if the location was valid, it would show a foot icon.
-This movement mode required the use of Unreal's navigation system, and adjustments had to be made as the house was designed to match the scale of it's real life counterpart, whereas Unreal's navigation system was built for the exaggerated scale video games use.
-When using the keyboard movement style, they would be able to use the WASD or Arrow Keys to move around manually. In both modes, they would hold the left mouse button and drag their mouse to move the camera.
-For users who didn't want to walk through the house, we also included a list of all the editable rooms under the mini map, which would teleport the player to the selected room and put them right into editing mode. 
-                      </p>
+                      <a href="../../portfolio/DerekBaert_GameManagementSystem.pdf">Code Snippet</a>
                     </div>
                   </div>
                 </div>
