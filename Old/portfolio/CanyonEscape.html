@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Derek Baert</title>
+		<script defer src="../assets/js/modal.js"></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+				<div class="top">
+					<!-- Logo -->
+						<div id="logo">
+							<h1 id="title">Derek Baert</h1>
+							<p>Game Developer</p>
+						</div>
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="../index.html" id="top-link"><span class="icon solid fa-home">Home</span></a></li>
+								<li><a href="../index.html#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+								<li><a href="#top" id="top-link"><span class="icon solid fa-arrow-up">Top of Page</span></a></li>
+								<li><a href="#about" id="about-link"><span class="icon solid fa-user">Info</span></a></li>
+								<li><a href="#contributions" id="portfolio-link"><span class="icon solid fa-th">Features</span></a></li>
+								
+							</ul>
+						</nav>
+				</div>
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://twitter.com/DerekBaert" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://derekbaert.itch.io/" class="icon brands fa-itch-io"><span class="label">Itch.io</span></a></li>
+							<li><a href="https://www.linkedin.com/in/derekbaert/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/DerekBaert" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<!--<li><a href="derek.baert@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
+						</ul>
+
+				</div>
+			</div>		
+			
+		<!-- Main -->
+			<div id="main">
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+							<header>
+								<h2>Canyon Escape</h2>
+								<p>Canyon Escape is a short game developed for my Math course to showcase my knowledge of vectors, forces and rotations. You play as a heavy ship trying to make it to the end of an obstacle course.
+									This game was a great experience to showcase the technical skills and math skills I had learned throughout the program.
+								</p>
+							</header>
+						</div>
+					</section>
+
+					<!-- Info-->
+					<section id="about" class="three">
+						<div class="container">
+							<div class="row">
+								<div class="col-6 col-12-mobile">
+									<article class="item item-information">		
+										<h4>Role</h4>
+										<header>
+											<p>Developer, Designer</p>																		
+										</header>	
+									</article>
+								</div>
+								<div class="col-6 col-12-mobile">
+									<article class="item item-information">
+										<h4>Year</h4>								
+										<header>
+											<p>2023</p>																			
+										</header>						
+									</article>
+								</div>							
+							</div>
+							<div class="row">
+								<div class="col-6 col-12-mobile">
+									<article class="item item-information">
+										<h4>Software</h4>		
+										<header>
+											<p>Unity</p>							
+										</header>				
+									</article>
+								</div>
+								<div class="col-6 col-12-mobile">
+									<article class="item item-information">							
+										<h4>Genre</h4>		
+										<header>
+											<p>Rail Shooter</p>							
+										</header>									
+									</article>
+								</div>							
+							</div>
+							<div class="row">
+								<div class="col-6 col-12-mobile">
+									<article class="item item-information">
+										<h4>Languages</h4>		
+										<header>
+											<p>C#</p>							
+										</header>				
+									</article>
+								</div>
+								<div class="col-6 col-12-mobile">
+									<article class="item item-information">							
+										<h4>Platform</h4>		
+										<header>
+											<p>PC</p>							
+										</header>									
+									</article>
+								</div>							
+							</div>
+							<div class="row">
+								<div class="col-6 col-12-mobile">
+									<article class="item item-information">
+										<h4>Project Type</h4>		
+										<header>
+											<p>College Project (Solo), Prototype</p>							
+										</header>				
+									</article>
+								</div>
+								<div class="col-6 col-12-mobile">
+									<a href="https://derekbaert.itch.io/canyon-escape" class="image"><img src="../images/itch.png" alt="" /></a>
+								</div>						
+							</div>
+						</div>
+					</section>
+				<!-- Portfolio -->
+					<section id="contributions" class="four">
+						<div class="container">
+							<h3>Movement</h3>
+							<div class="row">
+								<article class="item">																									
+									<header class ="feature">																											
+										<p class ="feature-paragraph">
+											The player's ship moves continuously in one direction, similar to an endless runner, and the player is able to move the ship from side to side to avoid obstacles. 
+											This was achieved by caching the players inputs and using them to set the rigidbody's velocity on the X axis. A lower speed was chosen to make the spaceship feel heavier, 
+											as the model used resembles a tank.<br>Rotation is also applied to the ship, to make it look like it's leaning in the direction it's moving.
+										</p>
+										<img src="../images/ShipMovement.gif" alt="" class = "image fit"/>	
+									</header>
+								</article>																					
+							</div>
+							<h3>Limited Flight</h3>
+							<div class="row">
+								<article class="item">																									
+									<header class ="feature">
+										<img src="../images/ShipFlight.gif" alt="" class = "image fit"/>																												
+										<p class ="feature-paragraph">
+											Since the ship is intended to feel heavier, I gave it limited flight so it can still maneuver over obstacles, but is unable to fly for long periods. 
+											This was handled by setting the rigidbody's Y velocity to a fixed value while an input is held, and then running a timer in the background. 
+											Once the input is released or the timer hits 0, then the velocity is set back to 0 and flight is disabled until the ship lands. <br> 
+											Rotation is also applied to make the ship tip upwards.
+										</p>										
+									</header>
+								</article>																					
+							</div>
+							<h3>Turret Rotation</h3>
+							<div class="row">
+								<article class="item">																									
+									<header class ="feature">																																					
+										<p class ="feature-paragraph">
+											As an added feature, and because the model I used was a sci-fi tank, I added turret functionality to blast open metal walls. 
+											The challenge with this feature was handling the rotation of the turret independently from the rest of the ship. 
+											In order to include this, I separated the turret from the rest of the ship, and created a separate script to handle its rotation. 
+											This script responded to the player's inputs for rotating the turret, separately from the ships other functions.
+										</p>	
+										<img src="../images/ShipFlight.gif" alt="" class = "image fit"/>										
+									</header>
+								</article>																					
+							</div>
+						</div>	
+					</section>
+		<!-- Footer -->
+			<div id="footer">
+				<!-- Copyright -->
+					<ul class="copyright">
+						<!--<li>&copy; Untitled. All rights reserved.</li>-->
+						<li>Design: <a href="http://html5up.net">HTML5 UP</a>, modified by Derek Baert</li>
+					</ul>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>

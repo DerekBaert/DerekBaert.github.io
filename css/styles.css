@@ -1,0 +1,70 @@
+@import url("fontawesome-all.min.css");
+@import url("https://kit.fontawesome.com/6cc05e1e8e.js");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+
+nav
+{
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+.nav-link
+{
+    color:rgb(116, 114, 114);
+    font-size: 1.25em;
+}
+
+.active
+{
+    color:rgb(0, 0, 0);
+}
+
+.nav-link:hover
+{
+    color:rgb(0, 0, 0);
+}
+
+#quickinfo
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#quickinfo a
+{
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+#quickinfo li
+{
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+#content
+{
+    width: 75%;
+    margin-top: 20px;
+}
+
+#contribution
+{
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+#contribution-list
+{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#featuresTabs
+{
+    margin-top: 20px;
+}
+
+#portfolio-body
+{
+    font-family: 'Source Sans Pro', sans-serif;
+}
