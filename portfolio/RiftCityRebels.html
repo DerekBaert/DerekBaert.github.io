@@ -109,8 +109,7 @@
                 </li>   
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                   <div class="ms-2 me-auto">
-                    <div class="fw-bold">Available on</div>
-                    <a href="https://dobibo.itch.io/rift-city-rebels" class="btn btn-primary">Itch.io</a>
+                    <a href="https://dobibo.itch.io/rift-city-rebels"><img src="../images/itch.png" class="img-fluid" alt="..."></a>
                   </div>
                 </li>
               </ul>
@@ -177,11 +176,48 @@
               <div id="collapseOne" class="accordion-collapse collapse show  d-lg-block" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
                 <div class="accordion-body">
                   <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Initial Concept</h3>
                     <div class="col">
                       <img src="../images/RCR_Cinematic.gif" class="img-fluid" alt="...">
                     </div>
                     <div class="col">
-                      <p>Each programmer was paired with an artist to develop and design one of the playable fighters in the game. The character concept I pitched is Warden, folk horror inspired Monster with nature themes. Together with the artist I was paired with, we further developed his look, moveset and personal history. His physique informed a heavy hitting playstyle with moves influenced by professional wrestling, with some more fantastical abilities added to showcase his plant based powers. To tie in his Folk Horror inspiration, his backstory positioned him as the "boogeyman" of the games world, punishing those who wander into his territory. </p>
+                      <p>
+                        For this project each programmer was paired up with an artist who had interest in designing a character. For the other pairs, the artist came up with the visual and narrative concept for the character, while the programmer handled any special implementation the character required. I had a very strong idea for a heavy, nature themed character wearing a skull mask with a moveset inspired by wrestling and championed the idea. Luckily one of the artists was interested in the idea and volunteered to pair up with me. 
+                      </p>
+                      <a href="https://dsymmetry.notion.site/Warden-19f1a8d5527880058577f967490f83e8?pvs=4">Character Design Sheet</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Visual Design</h3>
+                    <div class="col">
+
+                      <img src="../images/Silhouette.png" class="img-fluid" alt="Early silhouettes for Warden.">
+                      <p>Early silhouettes for Warden.</p>
+                      <img src="../images/Warden.png" class="img-fluid" alt="Final Render for Warden">
+                      <p>Final character render</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        To properly convey the idea I had, I created a <a href="https://pin.it/4DMHBPBaS">mood board</a> of reference photos to share with them. We needed a second ‘heavy’ character, so we agreed that Warden would fill this role. The artist created some silhouettes based on the reference photos, and after some revisions we eventually settled on one that would fit the heavy hitting playstyle we were going for. To connect his nature with his martial arts focused moveset, we put vines wrapped around his hands and feet like Muay Thai ropes.
+                      </p>
+                      <img src="../images/Warden_Moodboard.png" class="img-fluid" alt="Snapshot of the mood board.">
+                      <p>Snippet of the mood board used for reference.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Moveset</h3>
+                    <div class="col">
+
+                      <img src="../images/Abilityconcepts.png" class="img-fluid" alt="Example of attack breakdowns.">
+                      <p>Example of attack breakdowns.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        For his moveset, we came up with a short list of wrestling moves and matched them to the input that we thought would be the best fit. As the game had a fantasy element, and to tie in his nature theme, we also gave him a few attacks that used vines he could summon from his hand or the ground.
+I then researched the frame data for similar attacks in existing fighting games to determine the best starting point for the animations and compiled this on his design sheet. As the game was developed, these values were adjusted as needed.
+                      </p>
+                      <img src="../images/Warden-AbilitySheet.webp" class="img-fluid" alt="Early ability sheet for Warden">
+                      <p>Early ability sheet for Warden.</p>
                     </div>
                   </div>
                 </div>
@@ -197,9 +233,93 @@
                     </div>
                     <div class="col">
                       <p>
-                        One system I was in charge of developing was the in match camera. As there are multiple players moving around the screen during a match, this system needed to move the camera to follow the action of the match, zoom in and out to best fit all characters on screen, and constrain the camera to the bounds of the level. To do this, I calculated a value between 0 and 1 to represent how far apart the players were from each other (0 being right beside each other, and 1 being at opposite ends of the map). Using this value, I was able to determine how far to zoom the camera out, as well as recalculate where the level bounds for the camera should be. With these set, I would continously move the camera toward the centrer point of all players, while keeping it constrained to the bounds calculated before. 
+                        One system I developed was the in-match camera. As there are multiple players moving around the screen during a match, this system needed to move the camera to follow the action of the match, zoom in and out to fit all characters on screen, and constrain the camera to the bounds of the level. Below I will cover how I tackled these behaviours.
                       </p>
-                      <a href="../../portfolio/DerekBaert_CameraSystem.pdf">Code Snippet</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Dynamic Zoom</h3>
+                    <div class="col">
+                      <img src="../images/RCR_Camera_DistanceCalculation.jpg" class="img-fluid" alt="...">
+                      <p>Function calculating the largest distance between all players.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        To fit all characters on screen, the camera needs to zoom in when characters are close together and zoom out when they are far apart. First, I need to figure out what the furthest distance between any two players is. To do this, the camera loops through an array of all the players and checks the distance between each player. If this value exceeds the current value of the “CurrentDistance” local variable, it is assigned as the new value of CurrentDistance. Once the loops complete, the value of CurrentDistance is returned
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/MapDistance.png" class="img-fluid" alt="...">
+                      <p>Mapping the highest distance between players on a scale of 0 to 1.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        Now that I know how far the two furthest players are, I need to figure out how far the camera can be allowed to zoom in or out. Since the two stages in our game are of vastly different size, I set up two instance variables so that the they could be adjusted to fit the needs of each stage.</br>
+                        Using these two variables, I can now map the current maximum distance to a value between 0 and 1, with 0 being the Minimum player distance, and 1 being the maximum player distance. This value is clamped at 1 to prevent the camera zooming out further than intended. This value is then stored as a variable called ZoomAmount.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/RCR_Camera_FInterp.png" class="img-fluid" alt="...">
+                      <p>Mapping new arm length within range, and then setting new arm length smoothly over time.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        Rather than adjust the ‘zoom’ of the camera, I attached a spring arm component to the camera which shortens and lengthens to simulate the camera zooming in and out. Similar to determining the minimum and maximum player distance, I set up instance variables for the arm length so that it can be set per stage.</br>
+                        Now, using the ZoomAmount value from earlier, I used a Lerp function to find the corresponding value between the minimum and maximum arm lengths, and set it as the spring arm’s current length with an FInterp function. This function smoothly changes the value of a float to a target value each frame, in this case the spring arm’s current length to the newly calculated length.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Tracking Movement</h3>
+                    <div class="col">
+                      <img src="../images/RCR_CalculatePosition.jpg" class="img-fluid" alt="...">
+                      <p>Calculating centre point of all players.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        Now that the camera is zoomed to its desired value, it also needs to track the position of the players. To do this, we need to find the center point of all players in the match and smoothly move towards it. 
+                        Finding the centre point is an easy task, as all that needs to be done is adding all player positions together and then dividing by the player count.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/DerekBaert_CameraBoundaries.jpg" class="img-fluid" alt="...">
+                      <p>Collision boxes used to for the minimum and maximum constraints of the camera.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        But what happens when one of the players is knocked out of bounds? The camera will move to follow them, potentially showing areas outside of the main play area. To fix this, I needed to find a way to set up boundaries for the camera that would adjust to match how far the camera was zoomed in or out.</br>
+                        Using the ZoomAmount calculated earlier, I can easily calculate boundaries for the camera. First, I set up two collision boxes that represent the bounds for the camera when it is fully zoomed in and out. Like with the previous instance variables, these will be adjusted manually to fit the needs of the given level.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/DerekBaert_CalculateNewBounds.jpg" class="img-fluid" alt="...">
+                      <p>Calculating new boundary for camera based on its current zoom value.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        With these set, I use the X and Z bounds of each collision box as the minimum and maximum in a lerp function, and the ZoomAmount to find the corresponding size of the new boundaries. I then use these newly calculated boundaries to constrain the camera’s position by clamping its X and Z values.
+                      </p>
+                      <img src="../images/DerekBaert_Camera_ClampPosition.jpg" class="img-fluid" alt="...">
+                      <p>Clamping position to new boundary.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <img src="../images/DerekBaert_Camera_MovePosition.jpg" class="img-fluid" alt="...">
+                      <p>Setting new camera position smoothly over time.</p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        Finally, I smoothly move the camera’s position to this constrained value using a VInterp function, which functions like the FInterp function used for the zoom.
+                      </p>
                     </div>
                   </div>
                 </div>
