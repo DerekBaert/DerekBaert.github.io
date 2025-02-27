@@ -154,24 +154,21 @@
                   </p>
                   <div class="row">
                     <h3 class="d-flex align-items-center justify-content-center">Automation Tool</h3>
-                    <div class="col">
-                      <img src="../images/Zecromancer_Anim.gif" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col">
+                    <div class="col d-flex flex-column justify-content-center">
                       <p>
                         Since this plugin is experimental, the workflow was not artist or designer friendly, so a tool was needed to automate the process.
 A designer friendly tool was first developed by Trash Praxis for Unreal 5.1, but due to changes with the plugin after this version, the tool no longer worked. By digging through the code for this tool, as well as the plugin files, I was able to remake the tool to work with version 5.3.
 A more in depth explanation and a look at the code can be found in the following documents:                   
                       </p>
                       <a href="https://derekbaert.notion.site/Anim-To-Texture-Editor-Utility-Widget-68400ade719b41a29d29fd604e6837d6?pvs=4">Code Breakdown</a>
+                    </div>                    
+                    <div class="col">
+                      <img src="../images/Zecromancer_Anim.gif" class="img-fluid" alt="...">
                     </div>
                   </div>
                   <div class="row">
                     <h3 class="d-flex align-items-center justify-content-center">Animation Controls</h3>
-                    <div class="col">
-                      <img src="../images/Zecromancer_Anim.gif" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col">
+                    <div class="col d-flex flex-column justify-content-center">
                       <p>
                         Unreal's systems are build assuming the use of Skeletal Animation, so a new system was needed to change the animations of the zombies. When the animations are extracted and stored in the Zombie's textures, they play in a sequence.
 For example, if we extracted data for a running and idle animation, the running animation would play to completion, then the idle animation would play, before looping back to the running animation again.
@@ -179,6 +176,9 @@ As part of the extraction process, a Data Asset is used to store references to a
 A more in depth explanation and a look at the code can be found in the following documents:                
                       </p>
                       <a href="https://derekbaert.notion.site/Changing-AnimToTexture-animations-with-the-Behaviour-Tree-f88b2165643a437cbbd63a55f356991a?pvs=4">Code Breakdown</a>
+                    </div>                    
+                    <div class="col">
+                      <img src="../images/Zecromancer_Anim.gif" class="img-fluid" alt="...">
                     </div>
                   </div>
                 </div>
@@ -189,15 +189,15 @@ A more in depth explanation and a look at the code can be found in the following
               <div id="collapseTwo" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
                 <div class="accordion-body">
                   <div class="row">
-                    <div class="col">
-                      <img src="../images/Zecromancer_ZombieRun.gif" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col">
+                    <div class="col d-flex flex-column justify-content-center">
                       <p>
                         As the game revolved around controlling a horde of zombies, I developed an AI system that would respond to the player's commands.
 When the player performed a gesture to command the zombies, each zombie's state would be updated to reflect the new command, which would then inform their behaviour tree.                       
                       </p>
                       <a href="https://derekbaert.notion.site/Zombie-AI-System-2bbeac5f5c484e7cacfb71558b0eee79?pvs=4">Code Breakdown</a>
+                    </div>                    
+                    <div class="col">
+                      <img src="../images/Zecromancer_ZombieRun.gif" class="img-fluid" alt="...">
                     </div>
                   </div>
                 </div>

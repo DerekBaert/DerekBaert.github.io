@@ -43,7 +43,7 @@ nav
 
 #content
 {
-    width: 75%;
+    max-width: 1320px;
     margin-top: 20px;
 }
 
