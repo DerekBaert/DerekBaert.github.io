@@ -330,12 +330,156 @@ I then researched the frame data for similar attacks in existing fighting games 
                   <div class="row">
                     <div class="col d-flex flex-column justify-content-center">
                       <p>
-                        Another feature I worked on was the integration of the cinematic sequences that would play at the character select screen and the results screen after a match. This system needed to determine which sequence to play based on which character it was for, as well as reflect which colour scheme the character was currently using. To do this, I created a Map which used the different character classes as keys, and their sequence for the character select or results screen as the value. When a character was selected, or a match was over, we would reference a struct of the player data which showed which player selected which character, and which colour variant they were using. With this we could easily look up which sequence to play, and change the material used by the character in the sequence to match the player's colour. 
+                        Another feature I worked on was the integration of the cinematic sequences that would play at the character select screen and the results screen after a match. This system needed to determine which sequence to play based on which character it was for, as well as reflect which colour scheme the character was currently using. I experimented with several different approaches to this problem before finding the one that worked the best for our project. This required a bit of creative problem solving and collaboration with artists to find the best settings to display their art and animations.
                       </p>
-                      <a href="../../portfolio/DerekBaert_AnimationIntegration.pdf">Code Snippet</a>
                     </div>                  
                     <div class="col">
-                      <img src="../images/RCR_CharacterSelect.gif" class="img-fluid" alt="...">
+                      <img src="../images/RCR_CharacterSelect.gif" class="img-fluid" alt="The finished character select screen with animations.">
+                      <p>The finished character select screen with animations.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Character Select and Victory Animations</h3>
+                    <h4>First Attempt</h4>
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        For the character selection animations, we initially explored setting up a camera elsewhere in the stage to capture the animation being played, and then render it on the UI. This approach worked, but looked flat, so I instead set up a 3D scene. I made an actor with a 3D UI component on it, and placed four skeletal mesh components in front of each character select section. When a character is selected, it triggers an event which the actor subscribes to. The actor then checks which player it was that triggered the event using their Controller ID, and finds the skeletal mesh that corresponds to their slot.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/CharacterSelectSetup.png" class="img-fluid" alt="Skeletal meshes arranged in front of character select UI.">
+                      <p>Skeletal meshes arranged in front of character select UI.</p>
+                      <img src="../images/SelectingCharacterMesh.png" class="img-fluid" alt="Code snippet for finding the skeletal mesh for the correct player.">
+                      <p>Code snippet for finding the skeletal mesh for the correct player.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        To determine which mesh corresponded to which character, I created a map using the character’s class as the key, and the value is a struct containing their Name, Skeletal Mesh, and Animation.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/SkeletalMeshMap.png" class="img-fluid" alt="Example of the data contained in the struct.">
+                      <p>Example of the data contained in the struct.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Before setting the player’s mesh and playing their entrance animation, I ensure the mesh is not visible, then make it visible after setting everything up. This was done because there were a few frames before the animation started where the mesh was visible in it’s default pose.
+                      </p>
+                      <p>
+                        This system worked fine initially, but we ran into problems for characters with weapons, as these were separate meshes. There were also certain visual effects the artists wanted to implement with their textures, which would have been difficult to pull off with this method. So, I revised the system to use Unreal Engine’s Cinematic Sequences.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/ChangingMesh.png" class="img-fluid" alt="Code snippet showing the mesh being changed and the animation being played.">
+                      <p>Code snippet showing the mesh being changed and the animation being played.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h4>Second Attempt</h4>
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        The meshes were still useful, as they could be used to determine where on the screen to place the sequence. So, after determining which mesh to use, I used a Map to locate which sequence to play for the selected character. Similar to the map in my initial attempt, it used the character’s Class as the Key, and the sequence as the value.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/CharacterSequenceMap.png" class="img-fluid" alt="The data stored in the map for the character sequences.">
+                      <p>The data stored in the map for the character sequences.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Once the correct sequence was located, I called the Unreal function “Create Level Sequence Player” to spawn the sequence player, providing it with the character’s sequence, and the desired settings. In this case, because I need to make some adjustments to the sequence, I set auto-play to off. I also store the sequence as a local variable (Current Sequence) for easier referencing later. 
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/AddSequence.png" class="img-fluid" alt="Sequence being spawned.">
+                      <p>Code snippet showing the level sequence being spawned.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        The first adjustment is setting the position of the sequence to the position of the player’s mesh. To dot this, I first have to set the value of the sequence’s “Override Instance Data” variable to true, to override the transform. I then change the X and Y values of the DefaultLevelSequnceInstanceData, an object containing all the instance’s default data.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/OverridePosition.png" class="img-fluid" alt="Code showing the position of the level sequence being dynamically changed.">
+                      <p>Code showing the position of the level sequence being dynamically changed.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Next, I play the sequence, and store the sequence in a map, using the player’s Controller ID as the key. This way, if they deselect the character, I know to remove the sequence, clearing up the space in front of their character select section for when they select a new character.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/PlaySequence.png" class="img-fluid" alt="Code showing the sequence being played and stored for reference later.">
+                      <p>Code showing the sequence being played and stored for reference later.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Lastly, we need to make sure that the correct materials are applied the character spawned by the sequence. To account for multiple players selecting the same character, we created alternate colours which were assigned to the duplicate selections. To do this, I had to iterate through the bindings of the sequence being played, then iterate through the objects within each binding, and find which is the SkeletalMeshActor used in the sequence by attempting to cast the bound Object as a SkeletalMeshActor.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/GetBindings.png" class="img-fluid" alt="Code showing the bindings being iterated through.">
+                      <p>Code showing the bindings being iterated through.</p>
+                      <img src="../images/GetBoundObjects.png" class="img-fluid" alt="Code showing the objects within each binding being iterated through.">
+                      <p>Code showing the objects within each binding being iterated through.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        If the cast succeeds, then we check the character’s class defaults for which material to use, using an index created to track which material to use for the character, then set the material and overlay materials. Unreal shows a warning as changing these class defaults could cause problems, but referencing them like we are is safe.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/SettingSkeletalMaterial.png" class="img-fluid" alt="Code showing the materials of the skeletal mesh actor being adjusted during runtime.">
+                      <p>Code showing the materials of the skeletal mesh actor being adjusted during runtime.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        As each character had different technical art needs, not all used a SkeletalMeshActor in their sequence. For these, the cast would fail, in which case we check if it’s an instance of the character class. If it is, then we call a function for setting the material, which sets the materials within the actor.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/ChangingCharacterMaterials.png" class="img-fluid" alt="Code showing the changing of a character's materials.">
+                      <p>Code showing the changing of a character's materials.</p>
+                      <img src="../images/CharacterMaterialFunction.png" class="img-fluid" alt="Function in character class for changing materials.">
+                      <p>Function in character class for changing materials.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Lastly, once specific character used a Static Mesh as part of their sequence, so I did one final check for that, adding in a second check to make sure it was for their character specifically.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/StaticMeshActor.png" class="img-fluid" alt="Code for adjusting materials on a static mesh actor.">
+                      <p>Code for adjusting materials on a static mesh actor.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        A similar process was used for the winning character’s sequence on the post match results screen, however those sequences only used instances of the Character’s class, so we only needed to cast for that object in the bindings.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img src="../images/ResultsScreenMaterialChange.png" class="img-fluid" alt="Code showing the material being adjusted on the post match results screen.">
+                      <p>Code showing the material being adjusted on the post match results screen.</p>
                     </div>
                   </div>
                 </div>
