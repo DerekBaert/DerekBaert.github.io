@@ -488,16 +488,175 @@ I then researched the frame data for similar attacks in existing fighting games 
             <div class="tab-pane fade accordion-item" id="data-tab-pane" role="tabpanel" aria-labelledby="data-tab" tabindex="0">
               <div id="collapseFour" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingFour" data-bs-parent="#myTabContent">
                 <div class="accordion-body">
-                  <div class="row">          
+                  <div class="row">
                     <div class="col d-flex flex-column justify-content-center">
                       <p>
-                        A major system I worked on for this project was the Game Manager systems, or 'Game Modes' in Unreal Engine. These consisted of two major Game Modes; the menu game mode and the match game mode
-      The menu game mode handled all of the player selections in the menus leading up to the match itself. To handle this, I created a struct to track which character the player selected, as well as any in game statistics that could be used for balancing, or the players score. In the game mode, I then used these structs in a Map with the players controller ID as the key. This way, I could make sure the data in the struct was assigned to the correct player. This map was then transferred to the Game Mode for the match once it started. The Game Mode for the matches would track all of the players statistics. This included how many times they were knocked out, how many other players they knocked out, the damage they dealt, etc. This information was very useful after playtests, as we could compare how much damage the characters dealt, who won the most, and any other relevant comparisons to inform game balance. We also displayed some of this information to to the player after each match, so they could see how well they did. 
+                        A major system I worked on for this project was the Game Manager systems, or 'Game Modes' in Unreal Engine. Game Modes oversee the game state at each stage, defining  and implementing the rules of the game. These tracked all data related to player choices, such as the characters they selected and the stage they selected, as well as their in-match statistics, such as how many knockouts they received, and how much damage they received or dealt.
                       </p>
-                      <a href="../../portfolio/DerekBaert_GameManagementSystem.pdf">Code Snippet</a>
-                    </div>                    
+                    </div>                  
                     <div class="col">
-                      <img src="../images/RCR_Results.gif" class="img-fluid" alt="...">
+                      <img src="../images/RCR_Results.gif" class="img-fluid" alt="Post match results screen showing each players stats for the match.">
+                      <p>Post match results screen showing each players stats for the match.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Tracking Player Selections in the Menu</h3>
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        To track this data, I created a struct to store all relevant values, then created Map in each Game Mode using each player’s controller ID as the key, and this struct as the value.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/PlayerData.png" class="img-fluid" alt="Struct for tracking player data.">
+                      <p>Struct for tracking player data.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        The Menu Game Mode subscribes to an event in the character Select UI which triggers whenever a character is selected. The Game Mode then updates the entry for the player controller with the selected character’s class. This data will then be used when the players load into the level to spawn their selected character, as well as assign it to the correct player. 
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/AddingPlayerToMap.png" class="img-fluid" alt="Code for adding a player's data to the Map of structs.">
+                      <p>Code for adding a player's data to the Map of structs.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        A similar process is used when selecting a level. The event triggered provides an integer ID for the selected level, which is used to determine the level to load, as well as its music track. Each artist did a different lighting pass on one of the levels, so a random variant of the chosen level is selected from an array of the level file names and stored for later. The music track for the stage is passed to the Game Instance, an object that persists as long as the game is running. This can be used to pass data between the different game modes, as game modes do not persist when loading a new stage.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/LevelSelection.png" class="img-fluid" alt="Code for tracking level selection.">
+                      <p>Code for tracking level selection.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Another choice that I needed to track was which Game Mode to load when starting a match. Our game had two main match types: timed matches, and stock matches, both with their own unique game modes. These are chosen on the character select screen using a toggle, so I used Unreal’s built in Flip Flop node to swap between the two modes, and tracked the currently selected mode with a custom EGameType enumerator for each game mode type. An event dispatcher is then called which the UI subscribes to so that it updates to display the correct mode.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/GameModeSelection.png" class="img-fluid" alt="Code for tracking Game Mode.">
+                      <p>Code for tracking Game Mode.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        To set the game mode for a level when you open it, you set it using the optional pin “Options,” which accepts a string. For example, if using the Timed Match game mode, the string would be: <em class="fw-semibold">“?Game=/Game/Core/GameModes/GM_TimedMatch.GM_TimedMatch_C”</em>. To set this, I use a Switch node with the EGameType enumerator to determine which string to use, then pass this string along with the name of the Stage to be loaded to the Game Instance. This is then retrieved from the Game Instance by the Game Mode that handles the loading screen, which then opens the level. I also send the Map containing the player’s data to the Game Instance, so that the Game Mode for the Match can access it.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/UpdateGameInstance.png" class="img-fluid" alt="Code for updating Game Instance with player selections.">
+                      <p>Code for updating Game Instance with player selections.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Initially we attempted to do Asynchronous Loading to load the levels faster, but were unable to get it working before our deadline, so the Loading Screen is really just used to display gameplay tips before the level loads. 
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/LoadingScreen.png" class="img-fluid" alt="Code in the Loading Screen game mode for loading the selected level.">
+                      <p>Code in the Loading Screen game mode for loading the selected level.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3 class="d-flex align-items-center justify-content-center">Spawning Players and Tracking Data</h3>
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Once the level loads and the players are connected, the selected Game Mode takes over. Each of the specific Game Modes are child classes of the GM_Match game mode, which handles the implementation common across all the Game Modes. 
+                        </br>
+                        This game mode takes the Map of Player Data from the Game Instance and iterates through each entry to spawn each player’s character and connect them to the correct player’s controller. The SpawnPlayer function first creates an array of Player Start actors, which are objects Unreal uses to spawn player characters.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/SpawnPlayers-1.png" class="img-fluid" alt="Code for finding all spawn positions on stage.">
+                      <p>Code for finding all spawn positions on stage.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        For each entry in the Player Data Map, the Game Mode spawns an instance of the selected Character Class, using one of the player spawn transforms for its spawn position, and assigning the player’s controller as it’s owner. The spawned character is then stored as a local variable for referencing later.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/SpawnPlayers-2.png" class="img-fluid" alt="Code for spawning Player character and assigning it to player.">
+                      <p>Code for spawning Player character and assigning it to player.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        I then run a separate function called “Setup Player,” which gives the spawned Player a reference to their own Player ID, and adds each of them to an array of the Player instances. This array is used by things like the Camera which only need to know about the players in the match.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/SetupPlayer.png" class="img-fluid" alt="Code for setting up the player array and giving spawned character their Player ID.">
+                      <p>Code for setting up the player array and giving spawned character their Player ID.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Throughout the match, the Player Data map in the Game Mode needs to get updated with stats such as damage dealt, damage taken, how many times they were knocked out, how many times they knocked out others, etc. To  update this data, I set up Events in the Base Character class which broadcast the necessary information. Here, the Game Mode subscribes to the events.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/BindToPlayerEvents.png" class="img-fluid" alt="Binding Game Mode events to Character events.">
+                      <p>Binding Game Mode events to Character events.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Here is an example of one of the functions used to track this data, “Update Player Damage Stats,” which is called each time a player receives damage. The event provides the ID of the player receiving the damage, a reference to the Character which damaged them, how much damage was received, as well as the current amount of damage they have. 
+                      </br>
+                        First, the Game Mode locates the entry in the Player Data map matching the ID of the damaged player and increases the value of the total damage they’ve received in the match by the amount received by this attack.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/DamageReceived-1.png" class="img-fluid" alt="Code for incrementing damage received.">
+                      <p>Code for incrementing damage received.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Next, the game mode checks to see if the current damage they have is greater than the highest damage value they’ve had before getting knocked out this match. If it does, then the value for Peak Damage gets replaced with the current damage amount. 
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/DamageReceived-2.png" class="img-fluid" alt="Code for updating peak damage value.">
+                      <p>Code for updating peak damage value.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Next, the game mode iterates through the Player Data map to find the entry for the attacking player character. 
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/DamageReceived-3.png" class="img-fluid" alt="Code for locating the attacker.">
+                      <p>Code for locating the attacker.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex flex-column justify-content-center">
+                      <p>
+                        Once the player is found, the game mode increments their total damage dealt this match by the amount dealt by the attack.
+                      </p>
+                    </div>                  
+                    <div class="col">
+                      <img src="../images/DamageReceived-4.png" class="img-fluid" alt="Code for updating attacker's damage dealt.">
+                      <p>Code for updating attacker's damage dealt.</p>
                     </div>
                   </div>
                 </div>
